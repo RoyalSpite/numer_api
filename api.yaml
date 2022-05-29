@@ -27,6 +27,7 @@ paths:
             type: string
           style: spaceDelimited	
           explode: true
+          allowReserved: true
           
       responses:
         200:
