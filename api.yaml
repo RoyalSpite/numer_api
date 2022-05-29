@@ -1,0 +1,51 @@
+swagger: "2.0"
+info:
+  title: "numer_api"
+  version : "Alpha"
+  description: "Numerical Method Calculation API"
+
+schemes: [http,https]
+
+paths:
+  / :
+    post:
+      description: เก็บโจทย์ไว้ในฐานข้อมูล
+      parameters:
+
+        - in: query
+          name: method
+          description : วิธีการคำนวณ
+          required: true
+          type: string 
+ 
+        - in : query
+          name: input
+          description : ข้อมูลนำเข้า
+          required: true
+          type: array
+          items:
+            type: string
+          style: spaceDelimited	
+          explode: true
+          
+      responses:
+        200:
+          description: Successul Response
+
+  /get :
+    get:
+      description: ค้นหาข้อมูลโดยใช้ method
+      parameters:
+        - in: query
+          name: method
+          description : วิธีการคำนวณ
+          required: true
+          type: string
+
+      responses:
+        200:
+          description: เจอข้อมูล
+        404:
+          description: ไม่เจอข้อมูล
+
+        
